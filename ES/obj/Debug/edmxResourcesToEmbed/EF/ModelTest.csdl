@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestLanguageSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="QuestionAnswer" Relationship="Self.FK_QuestionAnswer_Answer" FromRole="Answer" ToRole="QuestionAnswer" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="QuestionAnswer" Relationship="Self.FK_QuestionAnswer_Question" FromRole="Question" ToRole="QuestionAnswer" />
+  </EntityType>
+  <EntityType Name="QuestionAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdQuestion" Type="Int32" />
+    <Property Name="IdAnswer" Type="Int32" />
+    <NavigationProperty Name="Answer" Relationship="Self.FK_QuestionAnswer_Answer" FromRole="QuestionAnswer" ToRole="Answer" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_QuestionAnswer_Question" FromRole="QuestionAnswer" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_QuestionAnswer_Answer">
+    <End Role="Answer" Type="Self.Answer" Multiplicity="0..1" />
+    <End Role="QuestionAnswer" Type="Self.QuestionAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionAnswer">
+        <PropertyRef Name="IdAnswer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionAnswer_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="QuestionAnswer" Type="Self.QuestionAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionAnswer">
+        <PropertyRef Name="IdQuestion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answer" EntityType="Self.Answer" />
+    <EntitySet Name="Question" EntityType="Self.Question" />
+    <EntitySet Name="QuestionAnswer" EntityType="Self.QuestionAnswer" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_QuestionAnswer_Answer" Association="Self.FK_QuestionAnswer_Answer">
+      <End Role="Answer" EntitySet="Answer" />
+      <End Role="QuestionAnswer" EntitySet="QuestionAnswer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionAnswer_Question" Association="Self.FK_QuestionAnswer_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="QuestionAnswer" EntitySet="QuestionAnswer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

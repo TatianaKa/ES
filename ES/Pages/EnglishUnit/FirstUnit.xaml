@@ -1,0 +1,71 @@
+﻿<Page x:Class="ES.Pages.EnglishUnit.FirstUnit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ES.Pages.EnglishUnit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FirstUnit">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Мое обучение"
+                   Grid.Column="1" 
+                   />
+        <StackPanel Orientation="Vertical"
+                     Grid.Column="1" 
+                   Grid.Row="1">
+            <TextBlock Text="{Binding Path=Name}"
+                       x:Name="txbName1" />
+            <TextBlock Text="{Binding Path=Description}"
+                       x:Name="txbDescription1"
+                   />
+            <ListView Grid.Column="2"
+                  x:Name="LvUnit1"
+                  Height="80"
+                      MouseDoubleClick="LvUnit1_MouseDoubleClick"
+            d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Checkpoint" x:Name="checkpoint1" MouseDown="checkpoint1_MouseDown"/>
+            <TextBlock Text="{Binding Path=Name}"
+                       x:Name="txbName2"
+                   />
+            <TextBlock Text="{Binding Path=Description}"
+                       x:Name="txbDescription2"
+                   />
+            <ListView Grid.Column="2"
+                  x:Name="LvUnit2"
+                  Height="100"
+            d:ItemsSource="{d:SampleData ItemCount=5}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Checkpoint" 
+                       x:Name="checkpoint2" 
+                       MouseDown="checkpoint2_MouseDown"/>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

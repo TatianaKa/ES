@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LanguageSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Achievement" EntityType="LanguageSchoolModel.Achievement" />
+    <EntitySet Name="AchievementUser" EntityType="LanguageSchoolModel.AchievementUser" />
+    <EntitySet Name="Answer" EntityType="LanguageSchoolModel.Answer" />
+    <EntitySet Name="Checkpoint" EntityType="LanguageSchoolModel.Checkpoint" />
+    <EntitySet Name="Exercise" EntityType="LanguageSchoolModel.Exercise" />
+    <EntitySet Name="Language" EntityType="LanguageSchoolModel.Language" />
+    <EntitySet Name="Level" EntityType="LanguageSchoolModel.Level" />
+    <EntitySet Name="PassedExercise" EntityType="LanguageSchoolModel.PassedExercise" />
+    <EntitySet Name="PassedLesson" EntityType="LanguageSchoolModel.PassedLesson" />
+    <EntitySet Name="QuestionResult" EntityType="LanguageSchoolModel.QuestionResult" />
+    <EntitySet Name="Result" EntityType="LanguageSchoolModel.Result" />
+    <EntitySet Name="Role" EntityType="LanguageSchoolModel.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="LanguageSchoolModel.sysdiagrams" />
+    <EntitySet Name="Unit" EntityType="LanguageSchoolModel.Unit" />
+    <EntitySet Name="User" EntityType="LanguageSchoolModel.User" />
+    <AssociationSet Name="FK_AchievementUser_Achievement" Association="LanguageSchoolModel.FK_AchievementUser_Achievement">
+      <End Role="Achievement" EntitySet="Achievement" />
+      <End Role="AchievementUser" EntitySet="AchievementUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AchievementUser_User" Association="LanguageSchoolModel.FK_AchievementUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AchievementUser" EntitySet="AchievementUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Checkpoint_Unit" Association="LanguageSchoolModel.FK_Checkpoint_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Checkpoint" EntitySet="Checkpoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_Checkpoint" Association="LanguageSchoolModel.FK_Result_Checkpoint">
+      <End Role="Checkpoint" EntitySet="Checkpoint" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exercise_Unit" Association="LanguageSchoolModel.FK_Exercise_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassedExercise_Exercise" Association="LanguageSchoolModel.FK_PassedExercise_Exercise">
+      <End Role="Exercise" EntitySet="Exercise" />
+      <End Role="PassedExercise" EntitySet="PassedExercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unit_Language" Association="LanguageSchoolModel.FK_Unit_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="Unit" EntitySet="Unit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Language" Association="LanguageSchoolModel.FK_User_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Level" Association="LanguageSchoolModel.FK_User_Level">
+      <End Role="Level" EntitySet="Level" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassedExercise_User" Association="LanguageSchoolModel.FK_PassedExercise_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PassedExercise" EntitySet="PassedExercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassedLesson_User" Association="LanguageSchoolModel.FK_PassedLesson_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PassedLesson" EntitySet="PassedLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionResult_User" Association="LanguageSchoolModel.FK_QuestionResult_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="QuestionResult" EntitySet="QuestionResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_User" Association="LanguageSchoolModel.FK_Result_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="LanguageSchoolModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Lesson" EntityType="LanguageSchoolModel.Lesson" />
+    <EntitySet Name="Question" EntityType="LanguageSchoolModel.Question" />
+    <EntitySet Name="QuestionLesson" EntityType="LanguageSchoolModel.QuestionLesson" />
+    <AssociationSet Name="FK_Answer_Question" Association="LanguageSchoolModel.FK_Answer_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Answer" EntitySet="Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Checkpoint" Association="LanguageSchoolModel.FK_Question_Checkpoint">
+      <End Role="Checkpoint" EntitySet="Checkpoint" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lesson_Unit" Association="LanguageSchoolModel.FK_Lesson_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PassedLesson_Lesson" Association="LanguageSchoolModel.FK_PassedLesson_Lesson">
+      <End Role="Lesson" EntitySet="Lesson" />
+      <End Role="PassedLesson" EntitySet="PassedLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Lesson" Association="LanguageSchoolModel.FK_Question_Lesson">
+      <End Role="Lesson" EntitySet="Lesson" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionResult_Question" Association="LanguageSchoolModel.FK_QuestionResult_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="QuestionResult" EntitySet="QuestionResult" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Achievement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AchievementUser" Relationship="LanguageSchoolModel.FK_AchievementUser_Achievement" FromRole="Achievement" ToRole="AchievementUser" />
+  </EntityType>
+  <EntityType Name="AchievementUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AchievementId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Achievement" Relationship="LanguageSchoolModel.FK_AchievementUser_Achievement" FromRole="AchievementUser" ToRole="Achievement" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_AchievementUser_User" FromRole="AchievementUser" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Essence" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionId" Type="Int32" />
+    <NavigationProperty Name="Question" Relationship="LanguageSchoolModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Checkpoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <Property Name="RightAnswerPercent" Type="Byte" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Unit" Relationship="LanguageSchoolModel.FK_Checkpoint_Unit" FromRole="Checkpoint" ToRole="Unit" />
+    <NavigationProperty Name="Result" Relationship="LanguageSchoolModel.FK_Result_Checkpoint" FromRole="Checkpoint" ToRole="Result" />
+    <NavigationProperty Name="Question" Relationship="LanguageSchoolModel.FK_Question_Checkpoint" FromRole="Checkpoint" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Exercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContentFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Unit" Relationship="LanguageSchoolModel.FK_Exercise_Unit" FromRole="Exercise" ToRole="Unit" />
+    <NavigationProperty Name="PassedExercise" Relationship="LanguageSchoolModel.FK_PassedExercise_Exercise" FromRole="Exercise" ToRole="PassedExercise" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Info" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Unit" Relationship="LanguageSchoolModel.FK_Unit_Language" FromRole="Language" ToRole="Unit" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_User_Language" FromRole="Language" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Info" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_User_Level" FromRole="Level" ToRole="User" />
+  </EntityType>
+  <EntityType Name="PassedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ExerciseId" Type="Int32" Nullable="false" />
+    <Property Name="Outcome" Type="Boolean" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Exercise" Relationship="LanguageSchoolModel.FK_PassedExercise_Exercise" FromRole="PassedExercise" ToRole="Exercise" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_PassedExercise_User" FromRole="PassedExercise" ToRole="User" />
+  </EntityType>
+  <EntityType Name="PassedLesson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="LessonId" Type="Int32" Nullable="false" />
+    <Property Name="Outcome" Type="Boolean" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_PassedLesson_User" FromRole="PassedLesson" ToRole="User" />
+    <NavigationProperty Name="Lesson" Relationship="LanguageSchoolModel.FK_PassedLesson_Lesson" FromRole="PassedLesson" ToRole="Lesson" />
+  </EntityType>
+  <EntityType Name="QuestionResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="QuestionId" Type="Int32" Nullable="false" />
+    <Property Name="Outcome" Type="Boolean" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_QuestionResult_User" FromRole="QuestionResult" ToRole="User" />
+    <NavigationProperty Name="Question" Relationship="LanguageSchoolModel.FK_QuestionResult_Question" FromRole="QuestionResult" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CheckpointId" Type="Int32" Nullable="false" />
+    <Property Name="Outcome" Type="Boolean" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Checkpoint" Relationship="LanguageSchoolModel.FK_Result_Checkpoint" FromRole="Result" ToRole="Checkpoint" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_Result_User" FromRole="Result" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="LanguageSchoolModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="QtyLesson" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Checkpoint" Relationship="LanguageSchoolModel.FK_Checkpoint_Unit" FromRole="Unit" ToRole="Checkpoint" />
+    <NavigationProperty Name="Exercise" Relationship="LanguageSchoolModel.FK_Exercise_Unit" FromRole="Unit" ToRole="Exercise" />
+    <NavigationProperty Name="Language" Relationship="LanguageSchoolModel.FK_Unit_Language" FromRole="Unit" ToRole="Language" />
+    <NavigationProperty Name="Lesson" Relationship="LanguageSchoolModel.FK_Lesson_Unit" FromRole="Unit" ToRole="Lesson" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LanguageId" Type="Int32" />
+    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="LevelId" Type="Int32" />
+    <NavigationProperty Name="AchievementUser" Relationship="LanguageSchoolModel.FK_AchievementUser_User" FromRole="User" ToRole="AchievementUser" />
+    <NavigationProperty Name="Language" Relationship="LanguageSchoolModel.FK_User_Language" FromRole="User" ToRole="Language" />
+    <NavigationProperty Name="Level" Relationship="LanguageSchoolModel.FK_User_Level" FromRole="User" ToRole="Level" />
+    <NavigationProperty Name="PassedExercise" Relationship="LanguageSchoolModel.FK_PassedExercise_User" FromRole="User" ToRole="PassedExercise" />
+    <NavigationProperty Name="PassedLesson" Relationship="LanguageSchoolModel.FK_PassedLesson_User" FromRole="User" ToRole="PassedLesson" />
+    <NavigationProperty Name="QuestionResult" Relationship="LanguageSchoolModel.FK_QuestionResult_User" FromRole="User" ToRole="QuestionResult" />
+    <NavigationProperty Name="Result" Relationship="LanguageSchoolModel.FK_Result_User" FromRole="User" ToRole="Result" />
+    <NavigationProperty Name="Role" Relationship="LanguageSchoolModel.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_AchievementUser_Achievement">
+    <End Type="LanguageSchoolModel.Achievement" Role="Achievement" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.AchievementUser" Role="AchievementUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Achievement">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchievementUser">
+        <PropertyRef Name="AchievementId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AchievementUser_User">
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.AchievementUser" Role="AchievementUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AchievementUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Checkpoint_Unit">
+    <End Type="LanguageSchoolModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Checkpoint" Role="Checkpoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Checkpoint">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_Checkpoint">
+    <End Type="LanguageSchoolModel.Checkpoint" Role="Checkpoint" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Result" Role="Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Checkpoint">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="CheckpointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exercise_Unit">
+    <End Type="LanguageSchoolModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Exercise" Role="Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassedExercise_Exercise">
+    <End Type="LanguageSchoolModel.Exercise" Role="Exercise" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.PassedExercise" Role="PassedExercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassedExercise">
+        <PropertyRef Name="ExerciseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unit_Language">
+    <End Type="LanguageSchoolModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Unit" Role="Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Language">
+    <End Type="LanguageSchoolModel.Language" Role="Language" Multiplicity="0..1" />
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Level">
+    <End Type="LanguageSchoolModel.Level" Role="Level" Multiplicity="0..1" />
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="LevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassedExercise_User">
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.PassedExercise" Role="PassedExercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassedExercise">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassedLesson_User">
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.PassedLesson" Role="PassedLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassedLesson">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionResult_User">
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.QuestionResult" Role="QuestionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionResult">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_User">
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Result" Role="Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Type="LanguageSchoolModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="LanguageSchoolModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UnitId" Type="Int32" Nullable="false" />
+    <Property Name="ContentFile" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+    <Property Name="VideoLink" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Unit" Relationship="LanguageSchoolModel.FK_Lesson_Unit" FromRole="Lesson" ToRole="Unit" />
+    <NavigationProperty Name="PassedLesson" Relationship="LanguageSchoolModel.FK_PassedLesson_Lesson" FromRole="Lesson" ToRole="PassedLesson" />
+    <NavigationProperty Name="Question" Relationship="LanguageSchoolModel.FK_Question_Lesson" FromRole="Lesson" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Essence" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="RightAnswerId" Type="Int32" />
+    <Property Name="CheckpointId" Type="Int32" Nullable="false" />
+    <Property Name="LessonId" Type="Int32" />
+    <NavigationProperty Name="Answer" Relationship="LanguageSchoolModel.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+    <NavigationProperty Name="Checkpoint" Relationship="LanguageSchoolModel.FK_Question_Checkpoint" FromRole="Question" ToRole="Checkpoint" />
+    <NavigationProperty Name="Lesson" Relationship="LanguageSchoolModel.FK_Question_Lesson" FromRole="Question" ToRole="Lesson" />
+    <NavigationProperty Name="QuestionResult" Relationship="LanguageSchoolModel.FK_QuestionResult_Question" FromRole="Question" ToRole="QuestionResult" />
+  </EntityType>
+  <EntityType Name="QuestionLesson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdQuestion" Type="Int32" Nullable="false" />
+    <Property Name="IdLesson" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Answer_Question">
+    <End Type="LanguageSchoolModel.Question" Role="Question" Multiplicity="0..1" />
+    <End Type="LanguageSchoolModel.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Checkpoint">
+    <End Type="LanguageSchoolModel.Checkpoint" Role="Checkpoint" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Checkpoint">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="CheckpointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lesson_Unit">
+    <End Type="LanguageSchoolModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.Lesson" Role="Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PassedLesson_Lesson">
+    <End Type="LanguageSchoolModel.Lesson" Role="Lesson" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.PassedLesson" Role="PassedLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lesson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PassedLesson">
+        <PropertyRef Name="LessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Lesson">
+    <End Type="LanguageSchoolModel.Lesson" Role="Lesson" Multiplicity="0..1" />
+    <End Type="LanguageSchoolModel.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lesson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="LessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionResult_Question">
+    <End Type="LanguageSchoolModel.Question" Role="Question" Multiplicity="1" />
+    <End Type="LanguageSchoolModel.QuestionResult" Role="QuestionResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionResult">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

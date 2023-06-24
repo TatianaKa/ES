@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23626913758b4cf88a1f48193fa4ac72" Name="Diagram1">
+        <EntityTypeShape EntityType="LanguageSchoolModel.Achievement" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.AchievementUser" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Answer" Width="1.5" PointX="9.75" PointY="23.625" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Checkpoint" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Exercise" Width="1.5" PointX="5.25" PointY="17.625" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Language" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Level" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.PassedExercise" Width="1.5" PointX="10.5" PointY="11.25" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.PassedLesson" Width="1.5" PointX="7.5" PointY="21" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.QuestionResult" Width="1.5" PointX="9.75" PointY="14.25" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Result" Width="1.5" PointX="7.5" PointY="12.75" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Role" Width="1.5" PointX="0.75" PointY="15.875" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Unit" Width="1.5" PointX="3" PointY="17.375" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.User" Width="1.5" PointX="3" PointY="11" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_AchievementUser_Achievement" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_AchievementUser_User" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Checkpoint_Unit" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Result_Checkpoint" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Exercise_Unit" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_PassedExercise_Exercise" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Unit_Language" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_User_Language" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_User_Level" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_PassedExercise_User" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_PassedLesson_User" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_QuestionResult_User" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Result_User" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_User_Role" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Lesson" Width="1.5" PointX="5.25" PointY="21.375" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.Question" Width="1.5" PointX="7.5" PointY="16.875" />
+        <EntityTypeShape EntityType="LanguageSchoolModel.QuestionLesson" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Answer_Question" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Question_Checkpoint" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Lesson_Unit" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_PassedLesson_Lesson" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_Question_Lesson" />
+        <AssociationConnector Association="LanguageSchoolModel.FK_QuestionResult_Question" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
